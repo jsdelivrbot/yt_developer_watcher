@@ -1,0 +1,11 @@
+/node_modules
+bundle.js
+npm-debug.log
+.DS_Store
+
+/test
+lista_kanalow
+
+# IntelliJ
+*.iml
+/.idea
