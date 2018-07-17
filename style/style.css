@@ -11,6 +11,10 @@
     max-width: 64px;
 }
 
+.video-detail {
+    background-color: rgb(46, 248, 137)
+}
+
 .video-detail .details {
     margin-top: 10px;
     padding: 10px; 
@@ -20,8 +24,11 @@
 
 .list-group-item {
     cursor: pointer;
+    background: rgb(0, 81, 255);
+    color: white
 }
 
 .list-group-item:hover {
     background-color: #eee;
+    color: rgb(7, 167, 7)
 }
