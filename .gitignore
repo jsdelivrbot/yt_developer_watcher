@@ -5,7 +5,7 @@ npm-debug.log
 
 /test
 lista_kanalow
-api_key
+yt_key.js
 
 # IntelliJ
 *.iml
