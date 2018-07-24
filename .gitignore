@@ -4,8 +4,7 @@ npm-debug.log
 .DS_Store
 
 /test
-lista_kanalow
-yt_key.js
+/src/roots
 
 # IntelliJ
 *.iml
