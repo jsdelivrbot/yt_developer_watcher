@@ -17,10 +17,14 @@ class App extends Component {
         this.state = {
             channels: [],
             selectedChanel: null, 
+            lastVideos: [],
+            lastVideo: null
         }
-        this.searchChanels(channelListId.roman);
+        //this.searchChanels(channelListId.roman);
+        this.searchLastVidoes(channelListId.roman);
+        
     }
-    searchChanels(channelId) {
+/*     searchChanels(channelId) {
         channelGetters.channelAllPlaylistsGetter({key: API_KEY, channelId: channelId}, channels => {
             console.log(channels)
             // console.log(chanel)
@@ -29,11 +33,31 @@ class App extends Component {
                 selectedChanel: channels[1]
             });
         });        
+    } */
+    
+    searchLastVidoes(channelId) {
+        var uploads = '';
+        channelGetters.channelUploadsGetter({key: API_KEY, channelId: channelId}, contentDetails => {
+            console.log(contentDetails)
+      
+            uploads = contentDetails[0].contentDetails.relatedPlaylists.uploads;
+            console.log(uploads)
+            channelGetters.channelAllVideosGetter({key: API_KEY, channelUploads: uploads}, lastVideos => {
+                console.log(lastVideos);
+                this.setState({ 
+                   lastVideos: lastVideos, 
+                   lastVideo: lastVideos[0] 
+                });
+            })
+        });
     }
+
+
+
     render() {
         return (
             <div>
-                <VideoChanel whichChanel={this.state.selectedChanel} />
+                <VideoChanel whichChanel={this.state.lastVideo} />
             </div>
         );
     }

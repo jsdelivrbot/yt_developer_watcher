@@ -5,16 +5,16 @@ const VideoChanel = ({whichChanel}) => {
         return <div>Loading</div>;
     }
 
-    /* const chanelId = whichChanel.id.videoId;
+    const chanelId = whichChanel.snippet.resourceId.videoId;
     console.log(chanelId)
     
     const url = `https://www.youtube.com/embed/${chanelId}`;
-     */
     
+    // miniatura src={whichChanel.snippet.thumbnails.medium.url}
     return (
         <div className="video-detail col-md-8">
             <div className="embed-responsive embed-responsive-16by9">
-                <img className="embed-responsive-item" src={whichChanel.snippet.thumbnails.medium.url} />
+                <iframe className="embed-responsive-item" src={url}></iframe>
             </div>
            <div className="details">
                 <div>{whichChanel.snippet.channelTitle}</div>
