@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(14, 41, 26)
+}
+
 .search-bar {
     margin: 20px;
     text-align: center
@@ -12,23 +16,28 @@
 }
 
 .video-detail {
-    background-color: rgb(46, 248, 137)
+    margin-top: 2vh;
+    
+    background-color: rgb(14, 41, 26)
 }
 
 .video-detail .details {
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
     padding: 10px; 
     border: 1px solid #ddd;
-    border-radius: 4px
+    border-radius: 4px;
+    color: #ddd
 }
+
+
 
 .list-group-item {
     cursor: pointer;
-    background: rgb(0, 81, 255);
-    color: white
+    background: rgb(14, 41, 26);
+    color: #ddd
 }
 
 .list-group-item:hover {
-    background-color: #eee;
-    color: rgb(7, 167, 7)
+    background-color: #ccc;
+    color: rgb(14, 41, 26)
 }

@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 
 import channelGetters from '../src/roots/my_axios_module';
 import API_KEY from '../src/roots/yt_key'
-import VideoChanel from './compos/video_chanel';
 import channelListId from '../src/roots/channels';
+import VideoChannel from './compos/video_channel';
+import VideosChannelList from './compos/video_list';
 //import VideoButtons from './compos/video_buttons';
 
 
@@ -57,7 +58,10 @@ class App extends Component {
     render() {
         return (
             <div>
-                <VideoChanel whichChanel={this.state.lastVideo} />
+                <VideoChannel whichChanel={this.state.lastVideo} />
+                <VideosChannelList 
+                    onVideoSelect={lastVideo => this.setState({lastVideo})}
+                    videos={this.state.lastVideos} />
             </div>
         );
     }
