@@ -47,7 +47,8 @@ class App extends Component {
                 console.log(lastVideos);
                 this.setState({ 
                    lastVideos: lastVideos, 
-                   lastVideo: lastVideos[0] 
+                   //extantVideos: lastVideos, 
+                   lastVideo: lastVideos[0],
                 });
             })
         });

@@ -6,7 +6,9 @@ const VideoChannel = ({whichChanel}) => {
     }
 
     const chanelId = whichChanel.snippet.resourceId.videoId;
-    console.log(chanelId)
+    console.log(chanelId);
+    const publishingDate = Date.parse(whichChanel.snippet.publishedAt);
+    let daysFromPublishingDate = Math.floor((Date.now() - publishingDate)/86400000);
     
     const url = `https://www.youtube.com/embed/${chanelId}`;
     
@@ -21,6 +23,8 @@ const VideoChannel = ({whichChanel}) => {
             </div>
            <div className="details">
                 <div>Najnowszy odcinek: {whichChanel.snippet.title}</div>
+                <div className="media-heading">Dni od daty publikacji: {daysFromPublishingDate}</div>
+                
                 {/* <div>{whichChanel.snippet.description}</div>
                 <div>{whichChanel.snippet.channelId}</div>
                 <div>{whichChanel.snippet.publishedAt}</div> */}
