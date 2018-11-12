@@ -7,6 +7,7 @@ import API_KEY from '../src/roots/yt_key'
 import channelListId from '../src/roots/channels';
 import VideoChannel from './compos/video_channel';
 import VideosChannelList from './compos/video_list';
+import AllChanelsPanel from './compos/chanels_panel';
 //import VideoButtons from './compos/video_buttons';
 
 
@@ -19,7 +20,8 @@ class App extends Component {
             channels: [],
             selectedChanel: null, 
             lastVideos: [],
-            lastVideo: null
+            lastVideo: null,
+            toggleChanelsPanel: false
         }
         //this.searchChanels(channelListId.roman);
         this.searchLastVidoes(channelListId.roman);
@@ -63,6 +65,7 @@ class App extends Component {
                 <VideosChannelList 
                     onVideoSelect={lastVideo => this.setState({lastVideo})}
                     videos={this.state.lastVideos} />
+                <AllChanelsPanel />    
             </div>
         );
     }
