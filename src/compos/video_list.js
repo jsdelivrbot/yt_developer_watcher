@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import VideoListItem from './video_list_item';
 
-const videosChannelList = (props) => {
-    const videoItems = props.videos.map((video) => {
-        return (
-            <VideoListItem 
-                onVideoSelect={props.onVideoSelect}
-                key={video.etag}
-                video={video} />
-        )
-    });
+class videosChannelList extends Component{
+    render(){
 
-    return (
-        <ul className="col-md-4 list-group"> 
-            {videoItems}    
-        </ul>
-    );
+        const videoItems = this.props.videos.map((video) => {
+            return (
+                <VideoListItem 
+                    onVideoSelect={this.props.onVideoSelect}
+                    key={video.etag}
+                    video={video} />
+            )
+        });
+
+        return (
+                <ul className="col-md-4 list-group"> 
+                    {videoItems}    
+                </ul>        
+        );
+    }    
 }
 
 export default videosChannelList

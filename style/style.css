@@ -57,7 +57,29 @@ body {
     font-weight: 700
 }
 
+.show-panel{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 10px;
+    left: 900px;
+    color: white; 
+}
+
 .chanels-panel{
     font-size: 40px;
     color: red;
+    height: 100%;
+    background-color: rgb(2, 18, 24) ;
+}
+.hide-button{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: darkgreen;
+    position: absolute;
+    top: 10px;
+    left: 20px; 
 }

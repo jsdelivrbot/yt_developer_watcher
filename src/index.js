@@ -7,7 +7,7 @@ import API_KEY from '../src/roots/yt_key'
 import channelListId from '../src/roots/channels';
 import VideoChannel from './compos/video_channel';
 import VideosChannelList from './compos/video_list';
-import AllChanelsPanel from './compos/chanels_panel';
+import AllChannelsPanel from './compos/chanels_panel';
 //import VideoButtons from './compos/video_buttons';
 
 
@@ -21,7 +21,7 @@ class App extends Component {
             selectedChanel: null, 
             lastVideos: [],
             lastVideo: null,
-            toggleChanelsPanel: false
+            toggleChannelsPanel: false
         }
         //this.searchChanels(channelListId.roman);
         this.searchLastVidoes(channelListId.roman);
@@ -56,7 +56,13 @@ class App extends Component {
         });
     }
 
+    showChannelsPanel =  () => {
+        this.setState({toggleChannelsPanel: true});
+    }
 
+    hideChannelsPanel = () => {
+        this.setState({toggleChannelsPanel: false});
+    }
 
     render() {
         return (
@@ -64,13 +70,22 @@ class App extends Component {
                 <VideoChannel whichChanel={this.state.lastVideo} />
                 <VideosChannelList 
                     onVideoSelect={lastVideo => this.setState({lastVideo})}
-                    videos={this.state.lastVideos} />
-                <AllChanelsPanel />    
+                    videos={this.state.lastVideos} 
+                    
+                /> 
+                <div className="show-panel" 
+                    onClick={this.showChannelsPanel}
+                >   P</div>
+                     
+                {this.state.toggleChannelsPanel && <AllChannelsPanel hidePanel={this.hideChannelsPanel}  />}
+                   
             </div>
         );
     }
 }
 ReactDOM.render(<App />, document.querySelector('.container'));
+
+
 
 
 /* class App extends Component {
