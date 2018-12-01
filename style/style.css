@@ -2,6 +2,10 @@ body {
     background-color: rgb(14, 41, 26)
 }
 
+.container{
+    position: relative;
+}
+
 .search-bar {
     margin: 20px;
     text-align: center
@@ -57,29 +61,29 @@ body {
     font-weight: 700
 }
 
-.show-panel{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background-color: whitesmoke;
+.toggle-panel{
+    width: 80px;
+    height: 20px;
+    background-color: lightsalmon;
     position: absolute;
     top: 10px;
-    left: 900px;
+    left: 880px;
     color: white; 
+    z-index: 10;
 }
 
 .chanels-panel{
-    font-size: 40px;
-    color: red;
-    height: 100%;
-    background-color: rgb(2, 18, 24) ;
-}
-.hide-button{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background-color: darkgreen;
     position: absolute;
-    top: 10px;
-    left: 20px; 
+    top:0;
+    left: 80%;
+
+    font-size: 20px;
+    color: lightsalmon;
+    height: 100vh;
+    background-color: rgb(2, 18, 24);
+    
+}
+h6{
+    color: inherit;
+    margin-top: 40px;
 }

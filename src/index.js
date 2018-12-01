@@ -11,8 +11,6 @@ import AllChannelsPanel from './compos/chanels_panel';
 //import VideoButtons from './compos/video_buttons';
 
 
-
-
 class App extends Component {
     constructor(props) {
         super(props); 
@@ -21,32 +19,34 @@ class App extends Component {
             selectedChanel: null, 
             lastVideos: [],
             lastVideo: null,
-            toggleChannelsPanel: false
+            toggleChannelsPanel: true,
+            channelName: null
         }
         //this.searchChanels(channelListId.roman);
-        this.searchLastVidoes(channelListId.roman);
+        this.searchLastVidoes(channelListId[5].id);
+        console.log(channelListId[3])
         
     }
-/*     searchChanels(channelId) {
-        channelGetters.channelAllPlaylistsGetter({key: API_KEY, channelId: channelId}, channels => {
-            console.log(channels)
-            // console.log(chanel)
-            this.setState({ 
-                channels: channels,
-                selectedChanel: channels[1]
-            });
-        });        
-    } */
+    //  searchChannels(channelId) {
+    //     channelGetters.channelAllPlaylistsGetter({key: API_KEY, channelId: channelId}, channels => {
+    //         console.log(channels)
+    //         console.log(chanel)
+    //         this.setState({ 
+    //             channels: channels,
+    //             selectedChanel: channels[1]
+    //         });
+    //     });        
+    // } 
     
     searchLastVidoes(channelId) {
         var uploads = '';
         channelGetters.channelUploadsGetter({key: API_KEY, channelId: channelId}, contentDetails => {
-            console.log(contentDetails)
+            //console.log(contentDetails)
       
             uploads = contentDetails[0].contentDetails.relatedPlaylists.uploads;
-            console.log(uploads)
+            //console.log(uploads)
             channelGetters.channelAllVideosGetter({key: API_KEY, channelUploads: uploads}, lastVideos => {
-                console.log(lastVideos);
+                //console.log(lastVideos);
                 this.setState({ 
                    lastVideos: lastVideos, 
                    //extantVideos: lastVideos, 
@@ -55,30 +55,40 @@ class App extends Component {
             })
         });
     }
-
-    showChannelsPanel =  () => {
-        this.setState({toggleChannelsPanel: true});
+   
+    handleToggleChannelsPanel = () => {
+        this.setState({
+            toggleChannelsPanel: !this.state.toggleChannelsPanel
+        });
     }
 
-    hideChannelsPanel = () => {
-        this.setState({toggleChannelsPanel: false});
+    handleName = (event) => {
+        this.setState({channelName: event.target.value})
+        console.log(this.state.channelName)
+        //console.log(channelListId)
     }
+    
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <VideoChannel whichChanel={this.state.lastVideo} />
                 <VideosChannelList 
                     onVideoSelect={lastVideo => this.setState({lastVideo})}
                     videos={this.state.lastVideos} 
                     
                 /> 
-                <div className="show-panel" 
-                    onClick={this.showChannelsPanel}
-                >   P</div>
+                <div className="toggle-panel" 
+                    onClick={this.handleToggleChannelsPanel}
+                />   
                      
-                {this.state.toggleChannelsPanel && <AllChannelsPanel hidePanel={this.hideChannelsPanel}  />}
-                   
+                {this.state.toggleChannelsPanel && <AllChannelsPanel 
+                    hidePanel={this.handleToggleChannelsPanel}  
+                    select={this.handleName}
+                    text={this.state.channelName}
+                    channelList={channelListId}    
+                />}
+                
             </div>
         );
     }
